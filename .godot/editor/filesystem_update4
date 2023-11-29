@@ -1,0 +1,5 @@
+res://addons/organizer/itemContent.tscn
+res://addons/organizer/item.tscn
+res://addons/organizer/main.tscn
+res://addons/organizer/main.gd
+res://addons/organizer/column.tscn

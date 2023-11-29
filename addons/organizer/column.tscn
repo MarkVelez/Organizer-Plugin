@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhi7n8r0qylu6"]
+
+[ext_resource type="PackedScene" uid="uid://b3tkyypalq172" path="res://addons/organizer/item.tscn" id="1_7ih33"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tckx"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3a1k"]
+content_margin_left = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt168"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxbob"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c36rf"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfsyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xhj7"]
+
+[node name="column" type="PanelContainer"]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1tckx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="columnTitle" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3a1k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c3a1k")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_c3a1k")
+placeholder_text = "this is the columns title"
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="itemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="item" parent="MarginContainer/VBoxContainer/itemList" instance=ExtResource("1_7ih33")]
+layout_mode = 2
+
+[node name="item2" parent="MarginContainer/VBoxContainer/itemList" instance=ExtResource("1_7ih33")]
+layout_mode = 2
+
+[node name="addItem" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kt168")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxbob")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c36rf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dfsyi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4xhj7")
+text = "Add Item"

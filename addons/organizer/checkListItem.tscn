@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4glirchwj3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_befk6"]
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bxlg"]
+content_margin_left = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[node name="checkListItem" type="HBoxContainer"]
+
+[node name="checkBox" type="CheckBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="text" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_befk6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1bxlg")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_1bxlg")
+placeholder_text = "this is the text of the item content"
+wrap_mode = 1
+scroll_fit_content_height = true

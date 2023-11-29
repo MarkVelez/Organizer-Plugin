@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://crapqewwqhyce"]
+
+[ext_resource type="Script" path="res://addons/organizer/main.gd" id="1_rnxc6"]
+[ext_resource type="PackedScene" uid="uid://dhi7n8r0qylu6" path="res://addons/organizer/column.tscn" id="1_u50yo"]
+[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/itemContent.tscn" id="3_4kdnn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpes6"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sljk"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh6fr"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnhxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_280my"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gewbv"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[node name="main" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rnxc6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="columnContainer" type="PanelContainer" parent="ScrollContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="columnList" type="HBoxContainer" parent="ScrollContainer/columnContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Column1" parent="ScrollContainer/columnContainer/columnList" instance=ExtResource("1_u50yo")]
+layout_mode = 2
+
+[node name="addColumn" type="Button" parent="ScrollContainer/columnContainer/columnList"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bpes6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6sljk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yh6fr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wnhxb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_280my")
+text = "Add Column"
+
+[node name="itemContents" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gewbv")
+
+[node name="itemContent" parent="itemContents" instance=ExtResource("3_4kdnn")]
+layout_mode = 2
+
+[connection signal="pressed" from="ScrollContainer/columnContainer/columnList/addColumn" to="." method="addColumnButton"]

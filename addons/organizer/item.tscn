@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3tkyypalq172"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg2ve"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4iqtl"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0h78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvulx"]
+
+[node name="item" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg2ve")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cg2ve")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4iqtl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l0h78")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lvulx")
+text = "this is the title of the item"
+alignment = 0
