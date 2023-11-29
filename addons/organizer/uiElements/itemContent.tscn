@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0hbohkrsmt7q"]
 
-[ext_resource type="PackedScene" uid="uid://dg4glirchwj3q" path="res://addons/organizer/checkListItem.tscn" id="1_t8gt6"]
+[ext_resource type="Script" path="res://addons/organizer/scripts/itemContent.gd" id="1_3eirc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcq2g"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -74,6 +74,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3eirc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -105,6 +106,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="itemTitle" type="TextEdit" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_krtgx")
@@ -136,6 +138,7 @@ layout_mode = 2
 text = "Description:"
 
 [node name="itemDescription" type="TextEdit" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_krtgx")
@@ -153,15 +156,16 @@ layout_mode = 2
 layout_mode = 2
 text = "Checklist:"
 
-[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="checklistProgress" type="ProgressBar" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-rounded = true
+max_value = 1.0
+step = 1.0
 
-[node name="checkList" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="checkListItem" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/checkList" instance=ExtResource("1_t8gt6")]
+[node name="checklistList" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -182,3 +186,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5nadt")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_k7jw5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iutay")
 text = "Add Item"
+
+[connection signal="draw" from="." to="." method="isVisible"]
+[connection signal="text_changed" from="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/itemTitle" to="." method="titleChanged"]
+[connection signal="pressed" from="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="closeButtonPressed"]
+[connection signal="text_changed" from="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/itemDescription" to="." method="descriptionChanged"]
+[connection signal="pressed" from="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/addItem" to="." method="addCheckListItem"]

@@ -4,7 +4,7 @@ extends EditorPlugin
 var mainScene
 
 func _enter_tree():
-	mainScene = preload("res://addons/organizer/main.tscn").instantiate()
+	mainScene = preload("res://addons/organizer/uiElements/main.tscn").instantiate()
 	get_editor_interface().get_editor_main_screen().add_child(mainScene)
 	_make_visible(false)
 

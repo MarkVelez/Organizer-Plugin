@@ -1,3 +1,4 @@
+ScrollContainer
 HBoxContainer
 VBoxContainer
 MarginContainer
@@ -8,7 +9,6 @@ Label
 ProgressBar
 TextEdit
 RichTextLabel
-ScrollContainer
 ColorRect
 HScrollBar
 Container

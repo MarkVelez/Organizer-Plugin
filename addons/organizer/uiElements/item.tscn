@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3tkyypalq172"]
 
-[ext_resource type="Script" path="res://addons/organizer/item.gd" id="1_jne67"]
+[ext_resource type="Script" path="res://addons/organizer/scripts/item.gd" id="1_qfxib"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg2ve"]
 content_margin_left = 6.0
@@ -42,4 +42,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_l0h78")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lvulx")
 text = "Item title"
 alignment = 0
-script = ExtResource("1_jne67")
+script = ExtResource("1_qfxib")
+
+[connection signal="closed" from="." to="." method="itemIsClosed"]
+[connection signal="pressed" from="." to="." method="itemClicked"]

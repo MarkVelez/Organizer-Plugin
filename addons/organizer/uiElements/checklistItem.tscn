@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg4glirchwj3q"]
+[gd_scene load_steps=4 format=3 uid="uid://dg4glirchwj3q"]
+
+[ext_resource type="Script" path="res://addons/organizer/scripts/checklistItem.gd" id="1_kjcm1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_befk6"]
 content_margin_bottom = 4.0
@@ -16,12 +18,16 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 31.0
 grow_horizontal = 2
+script = ExtResource("1_kjcm1")
 
-[node name="checkBox" type="CheckBox" parent="."]
+[node name="checkbox" type="CheckBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+focus_mode = 0
 
 [node name="text" type="TextEdit" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_befk6")
@@ -30,3 +36,6 @@ theme_override_styles/read_only = SubResource("StyleBoxFlat_1bxlg")
 placeholder_text = "Enter a task"
 wrap_mode = 1
 scroll_fit_content_height = true
+
+[connection signal="toggled" from="checkbox" to="." method="checkboxChecked"]
+[connection signal="text_changed" from="text" to="." method="textChanged"]

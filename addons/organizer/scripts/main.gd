@@ -4,7 +4,8 @@ extends PanelContainer
 var columns = {}
 var id = 0
 
-const columnScene = preload("res://addons/organizer/column.tscn")
+const columnScene = preload("res://addons/organizer/uiElements/column.tscn")
+
 @onready var columnList = $ScrollContainer/columnContainer/HBoxContainer/columnList
 @onready var itemContents = $itemContents
 @onready var addMenu = $ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu

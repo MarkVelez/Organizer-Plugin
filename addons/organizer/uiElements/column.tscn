@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dhi7n8r0qylu6"]
 
-[ext_resource type="Script" path="res://addons/organizer/column.gd" id="1_wn1qt"]
+[ext_resource type="Script" path="res://addons/organizer/scripts/column.gd" id="1_iq3ot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tckx"]
 bg_color = Color(0.145098, 0.145098, 0.145098, 1)
@@ -131,7 +131,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1tckx")
-script = ExtResource("1_wn1qt")
+script = ExtResource("1_iq3ot")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -152,6 +152,7 @@ size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_cbqqw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jcgwn")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_jcgwn")
+text = "<null>"
 placeholder_text = "Enter column title"
 wrap_mode = 1
 scroll_fit_content_height = true

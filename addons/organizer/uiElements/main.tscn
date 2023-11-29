@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://crapqewwqhyce"]
+[gd_scene load_steps=22 format=3 uid="uid://0jsv2pxqslq0"]
 
-[ext_resource type="Script" path="res://addons/organizer/main.gd" id="1_rnxc6"]
-[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/itemContent.tscn" id="2_xesmg"]
+[ext_resource type="Script" path="res://addons/organizer/scripts/main.gd" id="1_nkf41"]
+[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/uiElements/itemContent.tscn" id="2_xb2re"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpes6"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -100,7 +100,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_rnxc6")
+script = ExtResource("1_nkf41")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -193,7 +193,7 @@ visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gewbv")
 
-[node name="itemContent" parent="itemContents" instance=ExtResource("2_xesmg")]
+[node name="itemContent" parent="itemContents" instance=ExtResource("2_xb2re")]
 layout_mode = 2
 
 [connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn" to="." method="addColumnButton"]

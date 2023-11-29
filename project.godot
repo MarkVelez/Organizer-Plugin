@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Organizer Plugin"
-run/main_scene="res://addons/organizer/main.tscn"
+run/main_scene="res://addons/organizer/uiElements/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/editor_icon_previewer/plugin.cfg", "res://addons/organizer/plugin.cfg")
+enabled=PackedStringArray("res://addons/organizer/plugin.cfg")
 
 [rendering]
 

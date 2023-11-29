@@ -5,10 +5,9 @@ var items = {}
 var parentTitle
 var id = 0
 
-const itemScene = preload("res://addons/organizer/item.tscn")
-const itemContentScene = preload("res://addons/organizer/itemContent.tscn")
+const itemScene = preload("res://addons/organizer/uiElements/item.tscn")
+
 @onready var main = $"../../../../../"
-@onready var itemContent = $"../../../../../itemContents/itemContent"
 @onready var itemList = $MarginContainer/VBoxContainer/itemList
 @onready var columnTitle = $MarginContainer/VBoxContainer/HBoxContainer/columnTitle
 @onready var removeButton = $MarginContainer/VBoxContainer/HBoxContainer/removeButton
@@ -38,6 +37,7 @@ func addButton():
 			"title" : itemTitleText,
 			"contents" : item.contents
 		}
+		item.contents["title"] = itemTitleText
 		addMenu.visible = false
 		itemTitle.clear()
 
@@ -52,9 +52,8 @@ func closeButtonPressed():
 
 
 func columnTitleChanged():
-	if columnTitle.text != parentTitle:
-		main.columns[name]["title"] = columnTitle.text
-		parentTitle = columnTitle.text
+	main.columns[name]["title"] = columnTitle.text
+	parentTitle = columnTitle.text
 
 
 func checkIfTitleCorrect():
