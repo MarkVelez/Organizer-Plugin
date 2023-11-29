@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhi7n8r0qylu6"]
+[gd_scene load_steps=28 format=3 uid="uid://dhi7n8r0qylu6"]
 
-[ext_resource type="PackedScene" uid="uid://b3tkyypalq172" path="res://addons/organizer/item.tscn" id="1_7ih33"]
+[ext_resource type="Script" path="res://addons/organizer/column.gd" id="1_wn1qt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tckx"]
 bg_color = Color(0.145098, 0.145098, 0.145098, 1)
@@ -9,10 +9,32 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3a1k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbqqw"]
 content_margin_left = 4.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcgwn"]
+content_margin_left = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfg78"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i53k5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nunqp"]
+bg_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8w4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27wkf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt168"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -39,6 +61,66 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xhj7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kct4"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1to0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xif2c"]
+content_margin_left = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ry6j5"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkcoq"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsakq"]
+bg_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnoqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rihqg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du3tq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n43as"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sekp7"]
+bg_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c32nk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2yhy"]
+
 [node name="column" type="PanelContainer"]
 custom_minimum_size = Vector2(256, 0)
 anchors_preset = 15
@@ -47,8 +129,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1tckx")
+script = ExtResource("1_wn1qt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -60,26 +143,35 @@ theme_override_constants/margin_bottom = 6
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="columnTitle" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_c3a1k")
-theme_override_styles/focus = SubResource("StyleBoxFlat_c3a1k")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_c3a1k")
-placeholder_text = "this is the columns title"
+
+[node name="columnTitle" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbqqw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jcgwn")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_jcgwn")
+placeholder_text = "Enter column title"
 wrap_mode = 1
 scroll_fit_content_height = true
+
+[node name="removeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sfg78")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i53k5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nunqp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o8w4r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_27wkf")
 
 [node name="itemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="item" parent="MarginContainer/VBoxContainer/itemList" instance=ExtResource("1_7ih33")]
-layout_mode = 2
-
-[node name="item2" parent="MarginContainer/VBoxContainer/itemList" instance=ExtResource("1_7ih33")]
-layout_mode = 2
-
 [node name="addItem" type="Button" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kt168")
@@ -88,3 +180,66 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_c36rf")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dfsyi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4xhj7")
 text = "Add Item"
+
+[node name="addMenu" type="PanelContainer" parent="MarginContainer/VBoxContainer/addItem"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0kct4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/addItem/addMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="itemTitle" type="TextEdit" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1to0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xif2c")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_xif2c")
+placeholder_text = "Enter item title"
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="addButton" type="Button" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ry6j5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lkcoq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsakq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rnoqe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rihqg")
+text = "Add Item"
+
+[node name="closeButton" type="Button" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_du3tq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n43as")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sekp7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_c32nk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2yhy")
+text = "X"
+
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/columnTitle" to="." method="columnTitleChanged"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/removeButton" to="." method="closeButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/addItem" to="." method="addItemButton"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer/addButton" to="." method="addButton"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="closeButton"]

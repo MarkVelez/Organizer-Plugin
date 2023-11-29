@@ -1,14 +1,14 @@
+HBoxContainer
+VBoxContainer
+MarginContainer
 PanelContainer
 Control
 Button
 Label
-HBoxContainer
-VBoxContainer
 ProgressBar
 TextEdit
 RichTextLabel
 ScrollContainer
-MarginContainer
 ColorRect
 HScrollBar
 Container

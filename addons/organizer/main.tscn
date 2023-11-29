@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://crapqewwqhyce"]
+[gd_scene load_steps=22 format=3 uid="uid://crapqewwqhyce"]
 
 [ext_resource type="Script" path="res://addons/organizer/main.gd" id="1_rnxc6"]
-[ext_resource type="PackedScene" uid="uid://dhi7n8r0qylu6" path="res://addons/organizer/column.tscn" id="1_u50yo"]
-[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/itemContent.tscn" id="3_4kdnn"]
+[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/itemContent.tscn" id="2_xesmg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpes6"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -29,6 +28,66 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_280my"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fpi7"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcwm7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eknck"]
+content_margin_left = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgb67"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b063y"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0abd"]
+bg_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpmc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6vw4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwdhg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvqnx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehuli"]
+bg_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3dux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8teq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gewbv"]
 bg_color = Color(0, 0, 0, 0.392157)
 
@@ -51,15 +110,16 @@ vertical_scroll_mode = 0
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="columnList" type="HBoxContainer" parent="ScrollContainer/columnContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/columnContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="columnList" type="HBoxContainer" parent="ScrollContainer/columnContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 8
 
-[node name="Column1" parent="ScrollContainer/columnContainer/columnList" instance=ExtResource("1_u50yo")]
-layout_mode = 2
-
-[node name="addColumn" type="Button" parent="ScrollContainer/columnContainer/columnList"]
+[node name="addColumn" type="Button" parent="ScrollContainer/columnContainer/HBoxContainer"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_vertical = 0
@@ -71,12 +131,71 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_wnhxb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_280my")
 text = "Add Column"
 
+[node name="addMenu" type="PanelContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fpi7")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="columnTitle" type="TextEdit" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pcwm7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eknck")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_eknck")
+placeholder_text = "Enter column title"
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="addButton" type="Button" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_cgb67")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b063y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n0abd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lpmc6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6vw4")
+text = "Add Item"
+
+[node name="closeButton" type="Button" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hwdhg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hvqnx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ehuli")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a3dux")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8teq")
+text = "X"
+
 [node name="itemContents" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gewbv")
 
-[node name="itemContent" parent="itemContents" instance=ExtResource("3_4kdnn")]
+[node name="itemContent" parent="itemContents" instance=ExtResource("2_xesmg")]
 layout_mode = 2
 
-[connection signal="pressed" from="ScrollContainer/columnContainer/columnList/addColumn" to="." method="addColumnButton"]
+[connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn" to="." method="addColumnButton"]
+[connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer/addButton" to="." method="addButton"]
+[connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="closeButton"]

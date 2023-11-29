@@ -12,6 +12,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 
 [node name="checkListItem" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
 
 [node name="checkBox" type="CheckBox" parent="."]
 layout_mode = 2
@@ -23,6 +27,6 @@ size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_befk6")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1bxlg")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_1bxlg")
-placeholder_text = "this is the text of the item content"
+placeholder_text = "Enter a task"
 wrap_mode = 1
 scroll_fit_content_height = true

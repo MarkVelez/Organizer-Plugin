@@ -110,7 +110,7 @@ size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_krtgx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hvcqt")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_hvcqt")
-placeholder_text = "this is the title of the item"
+placeholder_text = "Enter item title"
 wrap_mode = 1
 scroll_fit_content_height = true
 
@@ -141,7 +141,7 @@ size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_krtgx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hvcqt")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_hvcqt")
-placeholder_text = "this is the description of the item"
+placeholder_text = "Write a description"
 wrap_mode = 1
 scroll_fit_content_height = true
 
