@@ -1,6 +1,8 @@
 @tool
 extends PanelContainer
 
+signal created
+
 var items = {}
 var parentTitle
 var id = 0
@@ -8,14 +10,14 @@ var id = 0
 const itemScene = preload("res://addons/organizer/uiElements/item.tscn")
 
 @onready var main = $"../../../../../"
-@onready var itemList = $MarginContainer/VBoxContainer/itemList
-@onready var columnTitle = $MarginContainer/VBoxContainer/HBoxContainer/columnTitle
-@onready var removeButton = $MarginContainer/VBoxContainer/HBoxContainer/removeButton
-@onready var itemTitle = $MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/itemTitle
-@onready var addMenu = $MarginContainer/VBoxContainer/addItem/addMenu
+@onready var itemList = %itemList
+@onready var columnTitle = %columnTitle
+@onready var removeButton = %removeButton
+@onready var addMenu = %addMenu
+@onready var itemTitle = %itemTitle
 
 
-func _ready():
+func whenCreated():
 	columnTitle.set_text(parentTitle)
 	removeButton.icon = get_theme_icon("Close", "EditorIcons")
 

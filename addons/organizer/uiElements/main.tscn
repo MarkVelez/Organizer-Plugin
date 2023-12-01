@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://0jsv2pxqslq0"]
 
 [ext_resource type="Script" path="res://addons/organizer/scripts/main.gd" id="1_nkf41"]
-[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/uiElements/itemContent.tscn" id="2_xb2re"]
+[ext_resource type="PackedScene" uid="uid://d0hbohkrsmt7q" path="res://addons/organizer/uiElements/itemContent.tscn" id="2_sax68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpes6"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -115,6 +115,7 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="columnList" type="HBoxContainer" parent="ScrollContainer/columnContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 8
@@ -132,6 +133,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_280my")
 text = "Add Column"
 
 [node name="addMenu" type="PanelContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 10
@@ -150,6 +152,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="columnTitle" type="TextEdit" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -189,11 +192,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_j8teq")
 text = "X"
 
 [node name="itemContents" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gewbv")
 
-[node name="itemContent" parent="itemContents" instance=ExtResource("2_xb2re")]
+[node name="itemContent" parent="itemContents" instance=ExtResource("2_sax68")]
 layout_mode = 2
 
 [connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn" to="." method="addColumnButton"]

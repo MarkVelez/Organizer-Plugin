@@ -37,5 +37,6 @@ placeholder_text = "Enter a task"
 wrap_mode = 1
 scroll_fit_content_height = true
 
+[connection signal="created" from="." to="." method="whenCreated"]
 [connection signal="toggled" from="checkbox" to="." method="checkboxChecked"]
 [connection signal="text_changed" from="text" to="." method="textChanged"]

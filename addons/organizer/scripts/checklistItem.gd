@@ -1,12 +1,15 @@
 @tool
 extends HBoxContainer
 
-@onready var itemContent = $"../../../../../../"
+signal created
+
+var itemContent
 @onready var text = %text
 @onready var checkbox = %checkbox
 
 
-func _ready():
+func whenCreated():
+	itemContent = $"../../../../../../"
 	if itemContent.contents["checklist"].has(name):
 		text.text = itemContent.contents["checklist"][name]["text"]
 		checkbox.button_pressed = itemContent.contents["checklist"][name]["completed"]

@@ -9,11 +9,10 @@ var contents = {
 	"checklist" : {}
 }
 
-@onready var itemContents = $"../../../../../../../../../itemContents"
-@onready var itemContent = $"../../../../../../../../../itemContents/itemContent"
-
 
 func itemClicked():
+	var itemContents = $"../../../../../../../../../itemContents"
+	var itemContent = $"../../../../../../../../../itemContents/itemContent"
 	itemContents.visible = true
 	itemContent.contents = contents
 	itemContent.item = self

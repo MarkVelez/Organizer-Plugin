@@ -6,10 +6,10 @@ var id = 0
 
 const columnScene = preload("res://addons/organizer/uiElements/column.tscn")
 
-@onready var columnList = $ScrollContainer/columnContainer/HBoxContainer/columnList
-@onready var itemContents = $itemContents
-@onready var addMenu = $ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu
-@onready var columnTitle = $ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/columnTitle
+@onready var columnList = %columnList
+@onready var itemContents = %itemContents
+@onready var addMenu = %addMenu
+@onready var columnTitle = %columnTitle
 
 func addColumnButton():
 	addMenu.visible = true
@@ -29,6 +29,7 @@ func addButton():
 			"items" : column.items
 		}
 		columnTitle.clear()
+		column.emit_signal("created")
 		addMenu.visible = false
 
 

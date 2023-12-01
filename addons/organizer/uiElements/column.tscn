@@ -147,6 +147,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="columnTitle" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_cbqqw")
@@ -158,6 +159,7 @@ wrap_mode = 1
 scroll_fit_content_height = true
 
 [node name="removeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -170,6 +172,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_o8w4r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_27wkf")
 
 [node name="itemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="addItem" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -183,6 +186,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4xhj7")
 text = "Add Item"
 
 [node name="addMenu" type="PanelContainer" parent="MarginContainer/VBoxContainer/addItem"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 10
@@ -201,6 +205,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="itemTitle" type="TextEdit" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -239,6 +244,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_c32nk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f2yhy")
 text = "X"
 
+[connection signal="created" from="." to="." method="whenCreated"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/columnTitle" to="." method="columnTitleChanged"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/removeButton" to="." method="closeButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/addItem" to="." method="addItemButton"]

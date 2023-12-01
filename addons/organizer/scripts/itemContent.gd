@@ -15,6 +15,7 @@ const checklistItemScene = preload("res://addons/organizer/uiElements/checklistI
 
 func closeButtonPressed():
 	get_parent().visible = false
+	checklistProgress.visible = false
 	item.contents = contents
 	item.emit_signal("closed")
 
@@ -22,9 +23,11 @@ func closeButtonPressed():
 func isVisible():
 	title.text = contents["title"]
 	description.text = contents["description"]
-	checklistProgress.max_value = id
 	loadCheckList()
 	updateProgress()
+	if id > 0:
+		checklistProgress.visible = true
+	checklistProgress.max_value = id
 
 
 func titleChanged():
@@ -44,6 +47,7 @@ func addCheckListItem():
 		"text" : "",
 		"completed" : false
 	}
+	checkbox.emit_signal("created")
 	if id == 0:
 		checklistProgress.visible = true
 	id += 1
@@ -55,11 +59,11 @@ func loadCheckList():
 	for children in checklist.get_children():
 		children.free()
 	
-	
 	for item in contents["checklist"]:
 		var checkbox = checklistItemScene.instantiate()
 		checkbox.name = item
 		checklist.add_child(checkbox)
+		checkbox.emit_signal("created")
 		id += 1
 
 
