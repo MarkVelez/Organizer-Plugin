@@ -4,5 +4,4 @@ Organizer is a simple plugin for Godot 4 that helps you keep track of progress a
 It is still work in progress.
 
 # Features left to add
-- Proper deletion
 - Saving/Loading

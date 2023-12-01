@@ -246,7 +246,7 @@ text = "X"
 
 [connection signal="created" from="." to="." method="whenCreated"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/columnTitle" to="." method="columnTitleChanged"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/removeButton" to="." method="closeButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/removeButton" to="." method="removeButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/addItem" to="." method="addItemButton"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer/addButton" to="." method="addButton"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="closeButton"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="addMenuCloseButtonPressed"]

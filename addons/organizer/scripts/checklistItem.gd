@@ -6,6 +6,7 @@ signal created
 var itemContent
 @onready var text = %text
 @onready var checkbox = %checkbox
+@onready var removeButton = %removeButton
 
 
 func whenCreated():
@@ -25,3 +26,21 @@ func checkboxChecked(state):
 		itemContent.checklistProgress.value += 1
 	else:
 		itemContent.checklistProgress.value -= 1
+
+
+func onMouseOver():
+	removeButton.visible = true
+
+
+func onMouseLeave():
+	removeButton.visible = false
+
+
+func onRemoveButtonPressed():
+	itemContent.contents["checklist"].erase(name)
+	itemContent.checklistProgress.max_value -= 1
+	if itemContent.checklistProgress.max_value <= 0:
+		itemContent.checklistProgress.visible = false
+	else:
+		itemContent.updateProgress()
+	queue_free()

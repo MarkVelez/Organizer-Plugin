@@ -25,9 +25,6 @@ func isVisible():
 	description.text = contents["description"]
 	loadCheckList()
 	updateProgress()
-	if id > 0:
-		checklistProgress.visible = true
-	checklistProgress.max_value = id
 
 
 func titleChanged():
@@ -51,7 +48,7 @@ func addCheckListItem():
 	if id == 0:
 		checklistProgress.visible = true
 	id += 1
-	checklistProgress.max_value = id
+	checklistProgress.max_value = contents["checklist"].size()
 
 
 func loadCheckList():
@@ -65,9 +62,15 @@ func loadCheckList():
 		checklist.add_child(checkbox)
 		checkbox.emit_signal("created")
 		id += 1
+	
+	if id == 0:
+		checklistProgress.visible = false
+	else:
+		checklistProgress.visible = true
 
 
 func updateProgress():
+	checklistProgress.max_value = contents["checklist"].size()
 	checklistProgress.value = 0
 	for item in contents["checklist"]:
 		if contents["checklist"][item]["completed"]:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3tkyypalq172"]
+[gd_scene load_steps=11 format=3 uid="uid://b3tkyypalq172"]
 
 [ext_resource type="Script" path="res://addons/organizer/scripts/item.gd" id="1_qfxib"]
 
@@ -28,12 +28,21 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvulx"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5psw4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn8w1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdwu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51iv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp7lj"]
+
 [node name="item" type="Button"]
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 30.0
 grow_horizontal = 2
-grow_vertical = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_cg2ve")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cg2ve")
@@ -44,5 +53,34 @@ text = "Item title"
 alignment = 0
 script = ExtResource("1_qfxib")
 
+[node name="removeButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5psw4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jn8w1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdwu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_51iv6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cp7lj")
+text = "X"
+
 [connection signal="closed" from="." to="." method="itemIsClosed"]
+[connection signal="mouse_entered" from="." to="." method="onMouseOver"]
+[connection signal="mouse_exited" from="." to="." method="onMouseLeave"]
 [connection signal="pressed" from="." to="." method="itemClicked"]
+[connection signal="pressed" from="removeButton" to="." method="onRemoveButtonPressed"]

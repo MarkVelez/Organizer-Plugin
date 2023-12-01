@@ -40,16 +40,18 @@ func addButton():
 			"contents" : item.contents
 		}
 		item.contents["title"] = itemTitleText
+		item.parent = self
 		addMenu.visible = false
 		itemTitle.clear()
 
 
-func closeButton():
+func addMenuCloseButtonPressed():
 	addMenu.visible = false
 	itemTitle.clear()
 
 
-func closeButtonPressed():
+func removeButtonPressed():
+	main.columns.erase(name)
 	queue_free()
 
 
