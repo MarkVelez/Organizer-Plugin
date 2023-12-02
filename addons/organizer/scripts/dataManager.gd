@@ -6,40 +6,24 @@ var fileName = "data.json"
 var dataPath = dataFolder + fileName
 
 
-func _ready():
+func _ready() -> void:
 	verifySaveDirectory(dataFolder)
 
 
-func verifySaveDirectory(path: String):
+func verifySaveDirectory(path: String) -> void:
 	DirAccess.make_dir_absolute(path)
 
 
-func saveData(data: Dictionary):
+func saveData(data: Dictionary) -> void:
 	var file = FileAccess.open(dataPath, FileAccess.WRITE)
-	if file == null:
-		print(FileAccess.get_open_error())
-		print("failed")
-		return
-	
 	var jsonString =JSON.stringify(data, "\t")
 	file.store_string(jsonString)
 	file.close()
 
-func getData():
+
+func getData() -> Dictionary:
 	var file = FileAccess.open(dataPath, FileAccess.READ)
-	if FileAccess.file_exists(dataPath):
-		if file == null:
-			print(FileAccess.get_open_error())
-			return
-		
-		var content = file.get_as_text()
-		file.close()
-		
-		var data = JSON.parse_string(content)
-		if data == null:
-			printerr("Cannot parse %s as a json_string: (%s)" % [dataPath, content])
-			return
-		
-		return data
-	else:
-		printerr("Cannot open non-existent file at %s!" % [dataPath])
+	var content = file.get_as_text()
+	file.close()
+	var data = JSON.parse_string(content)
+	return data

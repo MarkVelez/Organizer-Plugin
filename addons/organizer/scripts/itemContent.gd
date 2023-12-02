@@ -14,33 +14,33 @@ const checklistItemScene = preload("res://addons/organizer/uiElements/checklistI
 @onready var closeButton = %closeButton
 
 
-func _ready():
+func _ready() -> void:
 	closeButton.icon = get_theme_icon("Close", "EditorIcons")
 
 
-func closeButtonPressed():
+func closeButtonPressed() -> void:
 	get_parent().visible = false
 	checklistProgress.visible = false
 	item.contents = contents
 	item.emit_signal("closed")
 
 
-func isVisible():
+func isVisible() -> void:
 	title.text = contents["title"]
 	description.text = contents["description"]
 	loadCheckList()
 	updateProgress()
 
 
-func titleChanged():
+func titleChanged() -> void:
 	contents["title"] = title.text
 
 
-func descriptionChanged():
+func descriptionChanged() -> void:
 	contents["description"] = description.text
 
 
-func addCheckListItem():
+func addCheckListItem() -> void:
 	var checkbox = checklistItemScene.instantiate()
 	var indexedName = "checkbox"+str(id)
 	checkbox.name = indexedName
@@ -56,7 +56,7 @@ func addCheckListItem():
 	checklistProgress.max_value = contents["checklist"].size()
 
 
-func loadCheckList():
+func loadCheckList() -> void:
 	id = 0
 	for children in checklist.get_children():
 		children.free()
@@ -74,7 +74,7 @@ func loadCheckList():
 		checklistProgress.visible = true
 
 
-func updateProgress():
+func updateProgress() -> void:
 	checklistProgress.max_value = contents["checklist"].size()
 	checklistProgress.value = 0
 	for item in contents["checklist"]:

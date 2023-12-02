@@ -9,7 +9,7 @@ var itemContent
 @onready var removeButton = %removeButton
 
 
-func whenCreated():
+func whenCreated() -> void:
 	removeButton.icon = get_theme_icon("Close", "EditorIcons")
 	itemContent = $"../../../../../../"
 	if itemContent.contents["checklist"].has(name):
@@ -17,11 +17,11 @@ func whenCreated():
 		checkbox.button_pressed = itemContent.contents["checklist"][name]["completed"]
 
 
-func textChanged():
+func textChanged() -> void:
 	itemContent.contents["checklist"][name]["text"] = text.text
 
 
-func checkboxChecked(state):
+func checkboxChecked(state) -> void:
 	itemContent.contents["checklist"][name]["completed"] = state
 	if state:
 		itemContent.checklistProgress.value += 1
@@ -29,15 +29,15 @@ func checkboxChecked(state):
 		itemContent.checklistProgress.value -= 1
 
 
-func onMouseOver():
+func onMouseOver() -> void:
 	removeButton.visible = true
 
 
-func onMouseLeave():
+func onMouseLeave() -> void:
 	removeButton.visible = false
 
 
-func onRemoveButtonPressed():
+func onRemoveButtonPressed() -> void:
 	itemContent.contents["checklist"].erase(name)
 	itemContent.checklistProgress.max_value -= 1
 	if itemContent.checklistProgress.max_value <= 0:

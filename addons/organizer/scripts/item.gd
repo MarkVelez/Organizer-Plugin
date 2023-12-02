@@ -13,11 +13,11 @@ var contents = {
 }
 
 
-func _ready():
+func _ready() -> void:
 	removeButton.icon = get_theme_icon("Close", "EditorIcons")
 
 
-func itemClicked():
+func itemClicked() -> void:
 	if !is_queued_for_deletion():
 		var itemContents = $"../../../../../../../../../itemContents"
 		var itemContent = $"../../../../../../../../../itemContents/itemContent"
@@ -26,18 +26,18 @@ func itemClicked():
 		itemContent.item = self
 
 
-func itemIsClosed():
+func itemIsClosed() -> void:
 	text = contents["title"]
 
 
-func onMouseOver():
+func onMouseOver() -> void:
 	removeButton.visible = true
 
 
-func onMouseLeave():
+func onMouseLeave() -> void:
 	removeButton.visible = false
 
 
-func onRemoveButtonPressed():
+func onRemoveButtonPressed() -> void:
 	parent.items.erase(name)
 	queue_free()

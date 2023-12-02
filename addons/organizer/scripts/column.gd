@@ -19,44 +19,44 @@ const itemScene = preload("res://addons/organizer/uiElements/item.tscn")
 @onready var closeButton = %closeButton
 
 
-func whenCreated():
+func whenCreated() -> void:
 	columnTitle.set_text(parentTitle)
 	removeButton.icon = get_theme_icon("Close", "EditorIcons")
 	closeButton.icon = get_theme_icon("Close", "EditorIcons")
 
 
-func addItemButton():
+func addItemButton() -> void:
 	addMenu.visible = true
 
 
-func addButton():
+func addButton() -> void:
 	if checkIfTitleCorrect():
 		createItem("item"+str(id), itemTitle.text, false)
 
 
-func addMenuCloseButtonPressed():
+func addMenuCloseButtonPressed() -> void:
 	addMenu.visible = false
 	itemTitle.clear()
 
 
-func removeButtonPressed():
+func removeButtonPressed() -> void:
 	main.columns.erase(name)
 	queue_free()
 
 
-func columnTitleChanged():
+func columnTitleChanged() -> void:
 	main.columns[name]["title"] = columnTitle.text
 	parentTitle = columnTitle.text
 
 
-func checkIfTitleCorrect():
+func checkIfTitleCorrect() -> bool:
 	if itemTitle.text.is_empty():
 		return false
 	else:
 		return true
 
 
-func createItem(indexedName: String, title: String, isLoad: bool):
+func createItem(indexedName: String, title: String, isLoad: bool) -> void:
 	var item = itemScene.instantiate()
 	item.name = indexedName
 	item.text = title
@@ -75,6 +75,6 @@ func createItem(indexedName: String, title: String, isLoad: bool):
 	itemTitle.clear()
 
 
-func whenLoaded():
+func whenLoaded() -> void:
 	for item in main.data[self.name]["items"]:
 		createItem(item, main.data[self.name]["items"][item]["title"], true)

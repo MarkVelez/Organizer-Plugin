@@ -1,10 +1,8 @@
-res://addons/organizer/uiElements/main.tscn
 res://addons/organizer/uiElements/item.tscn
-res://addons/organizer/uiElements/checklistItem.tscn
-res://addons/organizer/uiElements/column.tscn
-res://addons/organizer/uiElements/itemContent.tscn
-res://addons/organizer/scripts/main.gd
+res://addons/organizer/scripts/item.gd
+res://addons/organizer/scripts/dataManager.gd
 res://addons/organizer/scripts/column.gd
-res://README.md
-res://addons/organizer/data/data.json
-res://addons/organizer/plugin.cfg
+res://addons/organizer/scripts/checklistItem.gd
+res://addons/organizer/scripts/itemContent.gd
+res://addons/organizer/scripts/main.gd
+res://addons/organizer/organizer.gd

@@ -14,33 +14,33 @@ var data = dataManager.new().getData()
 @onready var closeButton = %closeButton
 
 
-func _ready():
+func _ready() -> void:
 	closeButton.icon = get_theme_icon("Close", "EditorIcons")
 	loadData()
 
 
-func addColumnButton():
+func addColumnButton() -> void:
 	addMenu.visible = true
 
 
-func addButton():
+func addButton() -> void:
 	if checkIfTitleCorrect():
 		createColumn("column"+str(id), columnTitle.text, false)
 
 
-func onCloseButtonPressed():
+func onCloseButtonPressed() -> void:
 	addMenu.visible = false
 	columnTitle.clear()
 
 
-func checkIfTitleCorrect():
+func checkIfTitleCorrect() -> bool:
 	if columnTitle.text.is_empty():
 		return false
 	else:
 		return true
 
 
-func createColumn(indexedName: String, title: String, isLoad: bool):
+func createColumn(indexedName: String, title: String, isLoad: bool) -> void:
 	var column = columnScene.instantiate()
 	column.name = indexedName
 	column.parentTitle = title
@@ -63,6 +63,6 @@ func createColumn(indexedName: String, title: String, isLoad: bool):
 	addMenu.visible = false
 
 
-func loadData():
+func loadData() -> void:
 	for column in data:
 		createColumn(column, data[column]["title"], true)
