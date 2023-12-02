@@ -170,6 +170,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_i53k5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nunqp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_o8w4r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_27wkf")
+icon_alignment = 1
 
 [node name="itemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -232,6 +233,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rihqg")
 text = "Add Item"
 
 [node name="closeButton" type="Button" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -242,9 +244,10 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_n43as")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sekp7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_c32nk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f2yhy")
-text = "X"
+icon_alignment = 1
 
 [connection signal="created" from="." to="." method="whenCreated"]
+[connection signal="loaded" from="." to="." method="whenLoaded"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/columnTitle" to="." method="columnTitleChanged"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/removeButton" to="." method="removeButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/addItem" to="." method="addItemButton"]

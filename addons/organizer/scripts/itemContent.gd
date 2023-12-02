@@ -11,6 +11,11 @@ const checklistItemScene = preload("res://addons/organizer/uiElements/checklistI
 @onready var description = %itemDescription
 @onready var checklist = %checklistList
 @onready var checklistProgress = %checklistProgress
+@onready var closeButton = %closeButton
+
+
+func _ready():
+	closeButton.icon = get_theme_icon("Close", "EditorIcons")
 
 
 func closeButtonPressed():

@@ -10,6 +10,7 @@ var itemContent
 
 
 func whenCreated():
+	removeButton.icon = get_theme_icon("Close", "EditorIcons")
 	itemContent = $"../../../../../../"
 	if itemContent.contents["checklist"].has(name):
 		text.text = itemContent.contents["checklist"][name]["text"]

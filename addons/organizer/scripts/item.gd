@@ -13,6 +13,10 @@ var contents = {
 }
 
 
+func _ready():
+	removeButton.icon = get_theme_icon("Close", "EditorIcons")
+
+
 func itemClicked():
 	if !is_queued_for_deletion():
 		var itemContents = $"../../../../../../../../../itemContents"

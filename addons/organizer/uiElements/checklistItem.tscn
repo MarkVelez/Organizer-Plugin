@@ -63,7 +63,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_joqjw")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_opfu7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1vduq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t8hro")
-text = "X"
+icon_alignment = 1
 
 [connection signal="created" from="." to="." method="whenCreated"]
 [connection signal="mouse_entered" from="." to="." method="onMouseOver"]

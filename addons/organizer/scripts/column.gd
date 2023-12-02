@@ -2,6 +2,7 @@
 extends PanelContainer
 
 signal created
+signal loaded
 
 var items = {}
 var parentTitle
@@ -15,11 +16,13 @@ const itemScene = preload("res://addons/organizer/uiElements/item.tscn")
 @onready var removeButton = %removeButton
 @onready var addMenu = %addMenu
 @onready var itemTitle = %itemTitle
+@onready var closeButton = %closeButton
 
 
 func whenCreated():
 	columnTitle.set_text(parentTitle)
 	removeButton.icon = get_theme_icon("Close", "EditorIcons")
+	closeButton.icon = get_theme_icon("Close", "EditorIcons")
 
 
 func addItemButton():
@@ -28,21 +31,7 @@ func addItemButton():
 
 func addButton():
 	if checkIfTitleCorrect():
-		var itemTitleText = itemTitle.text
-		var indexedName = "item"+str(id)
-		var item = itemScene.instantiate()
-		item.name = indexedName
-		item.text = itemTitleText
-		itemList.add_child(item)
-		id += 1
-		items[indexedName] = {
-			"title" : itemTitleText,
-			"contents" : item.contents
-		}
-		item.contents["title"] = itemTitleText
-		item.parent = self
-		addMenu.visible = false
-		itemTitle.clear()
+		createItem("item"+str(id), itemTitle.text, false)
 
 
 func addMenuCloseButtonPressed():
@@ -65,3 +54,27 @@ func checkIfTitleCorrect():
 		return false
 	else:
 		return true
+
+
+func createItem(indexedName: String, title: String, isLoad: bool):
+	var item = itemScene.instantiate()
+	item.name = indexedName
+	item.text = title
+	itemList.add_child(item)
+	if isLoad:
+		item.contents = main.data[self.name]["items"][indexedName]["contents"]
+		id = int(indexedName.trim_prefix("item"))
+	items[indexedName] = {
+		"title" : title,
+		"contents" : item.contents
+	}
+	id += 1
+	item.contents["title"] = title
+	item.parent = self
+	addMenu.visible = false
+	itemTitle.clear()
+
+
+func whenLoaded():
+	for item in main.data[self.name]["items"]:
+		createItem(item, main.data[self.name]["items"][item]["title"], true)

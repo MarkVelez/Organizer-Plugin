@@ -2,6 +2,7 @@
 extends EditorPlugin
 
 var mainScene
+var data = dataManager.new()
 
 func _enter_tree():
 	mainScene = preload("res://addons/organizer/uiElements/main.tscn").instantiate()
@@ -19,6 +20,8 @@ func _has_main_screen():
 
 func _make_visible(visible):
 	mainScene.visible = visible
+	if !visible:
+		data.saveData(mainScene.columns)
 
 
 func _get_plugin_name():
