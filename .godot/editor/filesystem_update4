@@ -1,8 +1,1 @@
 res://addons/organizer/uiElements/item.tscn
-res://addons/organizer/scripts/item.gd
-res://addons/organizer/scripts/dataManager.gd
-res://addons/organizer/scripts/column.gd
-res://addons/organizer/scripts/checklistItem.gd
-res://addons/organizer/scripts/itemContent.gd
-res://addons/organizer/scripts/main.gd
-res://addons/organizer/organizer.gd
