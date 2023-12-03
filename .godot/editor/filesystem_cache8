@@ -1,6 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701605483
-icon.png::CompressedTexture2D::3276142864620507010::1701604806::1701604881::1::::<><>::
+::res://::1701609675
 icon.svg::CompressedTexture2D::7372905048686215107::1701559228::1701559300::1::::<><>::
 README.md::TextFile::-1::1701542102::0::1::::<><>::
 ::res://addons/::1701328595
@@ -8,8 +7,8 @@ README.md::TextFile::-1::1701542102::0::1::::<><>::
 icon.svg::CompressedTexture2D::3635824950493296415::1701558420::1701558423::1::::<><>::
 organizer.gd::GDScript::-1::1701556859::0::1::::<>EditorPlugin<>::
 plugin.cfg::TextFile::-1::1701543448::0::1::::<><>::
-::res://addons/organizer/data/::1701605483
-data.json::JSON::-1::1701605483::0::1::::<><>::
+::res://addons/organizer/data/::1701609675
+data.json::JSON::-1::1701609675::0::1::::<><>::
 ::res://addons/organizer/scripts/::1701556617
 checklistItem.gd::GDScript::-1::1701556533::0::1::::<>HBoxContainer<>::
 column.gd::GDScript::-1::1701556482::0::1::::<>PanelContainer<>::
@@ -17,9 +16,11 @@ dataManager.gd::GDScript::-1::1701556418::0::1::::dataManager<>RefCounted<>::
 item.gd::GDScript::-1::1701556257::0::1::::<>Button<>::
 itemContent.gd::GDScript::-1::1701556558::0::1::::<>Control<>::
 main.gd::GDScript::-1::1701556617::0::1::::<>PanelContainer<>::
-::res://addons/organizer/uiElements/::1701604886
+::res://addons/organizer/uiElements/::1701609555
 checklistItem.tscn::PackedScene::7640646460014361100::1701541792::0::1::::<><>::res://addons/organizer/scripts/checklistItem.gd
 column.tscn::PackedScene::7669066898357752083::1701541792::0::1::::<><>::res://addons/organizer/scripts/column.gd
-item.tscn::PackedScene::4391582795614355123::1701604886::0::1::::<><>::res://addons/organizer/scripts/item.gd
-itemContent.tscn::PackedScene::8928519888324412348::1701541792::0::1::::<><>::res://addons/organizer/scripts/itemContent.gd
-main.tscn::PackedScene::1774432340648783765::1701541791::0::1::::<><>::res://addons/organizer/scripts/main.gd<>uid://d0hbohkrsmt7q::::res://addons/organizer/uiElements/itemContent.tscn
+item.tscn::PackedScene::4391582795614355123::1701606582::0::1::::<><>::res://addons/organizer/scripts/item.gd
+itemContent.tscn::PackedScene::8928519888324412348::1701606957::0::1::::<><>::res://addons/organizer/scripts/itemContent.gd
+main.tscn::PackedScene::1774432340648783765::1701609555::0::1::::<><>::res://addons/organizer/scripts/main.gd<>uid://d0hbohkrsmt7q::::res://addons/organizer/uiElements/itemContent.tscn
+::res://media/::1701608971
+icon.png::CompressedTexture2D::1205926876049902366::1701605794::1701606367::1::::<><>::
