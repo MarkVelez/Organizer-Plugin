@@ -4,9 +4,10 @@ extends PanelContainer
 signal created
 signal loaded
 
-var items = {}
-var parentTitle
-var id = 0
+var items: Dictionary
+var parentTitle: String
+var columnId: int
+var id: int
 
 const itemScene = preload("res://addons/organizer/uiElements/item.tscn")
 
@@ -30,8 +31,9 @@ func addItemButton() -> void:
 
 
 func addButton() -> void:
-	if checkIfTitleCorrect():
-		createItem("item"+str(id), itemTitle.text, false)
+	if checkIfTitleCorrect(itemTitle):
+		createItem("item"+str(id), itemTitle.text)
+		main.emit_signal("unsavedChanges")
 
 
 func addMenuCloseButtonPressed() -> void:
@@ -40,34 +42,45 @@ func addMenuCloseButtonPressed() -> void:
 
 
 func removeButtonPressed() -> void:
-	main.columns.erase(name)
+	main.columns.erase(self.name)
+	main.itemContent.columns.remove_item(columnId)
+	main.emit_signal("unsavedChanges")
 	queue_free()
+	main.updateColumnsIndexing()
 
 
 func columnTitleChanged() -> void:
-	main.columns[name]["title"] = columnTitle.text
-	parentTitle = columnTitle.text
+	if checkIfTitleCorrect(columnTitle):
+		main.columns[self.name]["title"] = columnTitle.text
+		main.itemContent.columns.set_item_text(columnId, columnTitle.text)
+		parentTitle = columnTitle.text
+		main.emit_signal("unsavedChanges")
+	else:
+		columnTitle.text = main.columns[self.name]["title"]
 
 
-func checkIfTitleCorrect() -> bool:
-	if itemTitle.text.is_empty():
+func checkIfTitleCorrect(title) -> bool:
+	if title.text.is_empty():
 		return false
 	else:
 		return true
 
 
-func createItem(indexedName: String, title: String, isLoad: bool) -> void:
+func createItem(indexedName: String, title: String, isLoad = false) -> void:
 	var item = itemScene.instantiate()
 	item.name = indexedName
 	item.text = title
 	itemList.add_child(item)
 	if isLoad:
-		item.contents = main.data[self.name]["items"][indexedName]["contents"]
-		id = int(indexedName.trim_prefix("item"))
-	items[indexedName] = {
-		"title" : title,
-		"contents" : item.contents
-	}
+		items["item"+str(id)] = {
+			"title" : title,
+			"contents" : main.storedData[self.name]["items"][indexedName]["contents"]
+		}
+	else:
+		items[indexedName] = {
+			"title" : title,
+			"contents" : item.contents
+		}
 	id += 1
 	item.contents["title"] = title
 	item.parent = self
@@ -76,5 +89,6 @@ func createItem(indexedName: String, title: String, isLoad: bool) -> void:
 
 
 func whenLoaded() -> void:
-	for item in main.data[self.name]["items"]:
-		createItem(item, main.data[self.name]["items"][item]["title"], true)
+	id = 0
+	for item in main.storedData[self.name]["items"]:
+		createItem(item, main.storedData[self.name]["items"][item]["title"], true)

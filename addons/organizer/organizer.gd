@@ -20,8 +20,6 @@ func _has_main_screen() -> bool:
 
 func _make_visible(visible) -> void:
 	mainScene.visible = visible
-	if !visible:
-		data.saveData(mainScene.columns)
 
 
 func _get_plugin_name() -> String:

@@ -1,9 +1,9 @@
 @tool
 extends Control
 
-var contents = {}
-var item
-var id = 0
+var contents: Dictionary
+var item: Object
+var id: int
 
 const checklistItemScene = preload("res://addons/organizer/uiElements/checklistItem.tscn")
 
@@ -12,6 +12,7 @@ const checklistItemScene = preload("res://addons/organizer/uiElements/checklistI
 @onready var checklist = %checklistList
 @onready var checklistProgress = %checklistProgress
 @onready var closeButton = %closeButton
+@onready var columns = %columns
 
 
 func _ready() -> void:
@@ -23,6 +24,9 @@ func closeButtonPressed() -> void:
 	checklistProgress.visible = false
 	item.contents = contents
 	item.emit_signal("closed")
+	if columns.get_selected_metadata().name != item.parent.name:
+		item.emit_signal("parentChange", columns.get_selected_metadata())
+	columns.select(-1)
 
 
 func isVisible() -> void:
@@ -33,7 +37,10 @@ func isVisible() -> void:
 
 
 func titleChanged() -> void:
-	contents["title"] = title.text
+	if checkIfTitleCorrect():
+		contents["title"] = title.text
+	else:
+		title.text = contents["title"]
 
 
 func descriptionChanged() -> void:
@@ -80,3 +87,10 @@ func updateProgress() -> void:
 	for item in contents["checklist"]:
 		if contents["checklist"][item]["completed"]:
 			checklistProgress.value += 1
+
+
+func checkIfTitleCorrect() -> bool:
+	if title.text.is_empty():
+		return false
+	else:
+		return true

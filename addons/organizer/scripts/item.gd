@@ -2,8 +2,9 @@
 extends Button
 
 signal closed
+signal parentChange(newParent: Object)
 
-var parent
+var parent: Object
 @onready var removeButton = %removeButton
 
 var contents = {
@@ -24,10 +25,12 @@ func itemClicked() -> void:
 		itemContents.visible = true
 		itemContent.contents = contents
 		itemContent.item = self
+		itemContent.columns.select(int(parent.name.trim_prefix("column")))
 
 
 func itemIsClosed() -> void:
 	text = contents["title"]
+	parent.main.emit_signal("unsavedChanges")
 
 
 func onMouseOver() -> void:
@@ -41,3 +44,14 @@ func onMouseLeave() -> void:
 func onRemoveButtonPressed() -> void:
 	parent.items.erase(name)
 	queue_free()
+
+
+func onParentChanged(newParent):
+	parent.items.erase(self.name)
+	newParent.items["item" + str(newParent.id)] = {
+		"title" : contents["title"],
+		"contents" : contents
+	}
+	reparent(newParent.itemList)
+	self.name = "item" + str(newParent.id)
+	parent = newParent
