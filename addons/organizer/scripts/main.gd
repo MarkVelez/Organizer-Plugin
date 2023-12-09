@@ -24,7 +24,8 @@ func _ready() -> void:
 
 
 func hasUnsavedChanges() -> void:
-	data.saveData(columns)
+	if columns != data.getData():
+		data.saveData(columns)
 
 func addColumnButton() -> void:
 	addMenu.visible = true

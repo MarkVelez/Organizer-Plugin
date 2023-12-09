@@ -1,3 +1,4 @@
+HSeparator
 Timer
 Label
 HBoxContainer
@@ -12,4 +13,3 @@ Button
 ProgressBar
 TextEdit
 RichTextLabel
-ColorRect

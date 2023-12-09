@@ -89,17 +89,17 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkcoq"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsakq"]
 bg_color = Color(0.329412, 0.329412, 0.329412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnoqe"]
 
@@ -130,6 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+focus_mode = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_1tckx")
 script = ExtResource("1_iq3ot")
 
@@ -157,6 +158,7 @@ text = "<null>"
 placeholder_text = "Enter column title"
 wrap_mode = 1
 scroll_fit_content_height = true
+caret_blink = true
 
 [node name="removeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -178,7 +180,7 @@ layout_mode = 2
 
 [node name="addItem" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-focus_mode = 0
+focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_kt168")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxbob")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c36rf")
@@ -194,6 +196,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
+focus_mode = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_0kct4")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/addItem/addMenu"]
@@ -216,6 +219,7 @@ theme_override_styles/read_only = SubResource("StyleBoxFlat_xif2c")
 placeholder_text = "Enter item title"
 wrap_mode = 1
 scroll_fit_content_height = true
+caret_blink = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -223,7 +227,7 @@ layout_mode = 2
 [node name="addButton" type="Button" parent="MarginContainer/VBoxContainer/addItem/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_mode = 0
+focus_mode = 1
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_ry6j5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lkcoq")

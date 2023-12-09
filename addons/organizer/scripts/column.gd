@@ -92,3 +92,17 @@ func whenLoaded() -> void:
 	id = 0
 	for item in main.storedData[self.name]["items"]:
 		createItem(item, main.storedData[self.name]["items"][item]["title"], true)
+
+
+func updateItemsIndexing() -> void:
+	id = 0
+	await get_tree().create_timer(0).timeout
+	for item in itemList.get_children():
+		var indexedName = "item" + str(id)
+		items.erase(item.name)
+		item.name = indexedName
+		items[indexedName] = {
+			"title" : item.text,
+			"contents" : item.contents
+		}
+		id += 1

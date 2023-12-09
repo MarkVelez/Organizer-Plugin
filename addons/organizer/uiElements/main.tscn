@@ -56,15 +56,15 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b063y"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0abd"]
 bg_color = Color(0.329412, 0.329412, 0.329412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
@@ -88,7 +88,7 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8teq"]
 
-[sub_resource type="Image" id="Image_qcbdx"]
+[sub_resource type="Image" id="Image_km0td"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -97,8 +97,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_uvg6k"]
-image = SubResource("Image_qcbdx")
+[sub_resource type="ImageTexture" id="ImageTexture_w0pkv"]
+image = SubResource("Image_km0td")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gewbv"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -112,6 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 1
 script = ExtResource("1_nkf41")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -136,7 +137,7 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_vertical = 0
-focus_mode = 0
+focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_bpes6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6sljk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yh6fr")
@@ -174,6 +175,7 @@ theme_override_styles/read_only = SubResource("StyleBoxFlat_eknck")
 placeholder_text = "Enter column title"
 wrap_mode = 1
 scroll_fit_content_height = true
+caret_blink = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -181,7 +183,7 @@ layout_mode = 2
 [node name="addButton" type="Button" parent="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_mode = 0
+focus_mode = 1
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_cgb67")
 theme_override_styles/hover = SubResource("StyleBoxFlat_b063y")
@@ -196,13 +198,13 @@ custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-focus_mode = 0
+focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_hwdhg")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hvqnx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ehuli")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_a3dux")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j8teq")
-icon = SubResource("ImageTexture_uvg6k")
+icon = SubResource("ImageTexture_w0pkv")
 
 [node name="itemContents" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -215,6 +217,8 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="unsavedChanges" from="." to="." method="hasUnsavedChanges"]
+[connection signal="created" from="ScrollContainer/columnContainer/HBoxContainer/columnList/column0" to="ScrollContainer/columnContainer/HBoxContainer/columnList/column0" method="whenCreated"]
+[connection signal="loaded" from="ScrollContainer/columnContainer/HBoxContainer/columnList/column0" to="ScrollContainer/columnContainer/HBoxContainer/columnList/column0" method="whenLoaded"]
 [connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn" to="." method="addColumnButton"]
 [connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer/addButton" to="." method="addButton"]
 [connection signal="pressed" from="ScrollContainer/columnContainer/HBoxContainer/addColumn/addMenu/MarginContainer/VBoxContainer/HBoxContainer/closeButton" to="." method="onCloseButtonPressed"]

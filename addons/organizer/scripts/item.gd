@@ -43,15 +43,18 @@ func onMouseLeave() -> void:
 
 func onRemoveButtonPressed() -> void:
 	parent.items.erase(name)
+	parent.main.emit_signal("unsavedChanges")
 	queue_free()
+	parent.updateItemsIndexing()
 
 
-func onParentChanged(newParent):
+func onParentChanged(newParent) -> void:
 	parent.items.erase(self.name)
 	newParent.items["item" + str(newParent.id)] = {
 		"title" : contents["title"],
 		"contents" : contents
 	}
 	reparent(newParent.itemList)
+	parent.updateItemsIndexing()
 	self.name = "item" + str(newParent.id)
 	parent = newParent

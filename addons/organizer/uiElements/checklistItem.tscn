@@ -28,6 +28,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 31.0
 grow_horizontal = 2
+focus_mode = 1
 script = ExtResource("1_kjcm1")
 
 [node name="checkbox" type="CheckBox" parent="."]
@@ -48,6 +49,7 @@ theme_override_styles/read_only = SubResource("StyleBoxFlat_1bxlg")
 placeholder_text = "Enter a task"
 wrap_mode = 1
 scroll_fit_content_height = true
+caret_blink = true
 
 [node name="removeButton" type="Button" parent="."]
 unique_name_in_owner = true
