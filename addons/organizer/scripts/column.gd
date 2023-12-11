@@ -72,15 +72,11 @@ func createItem(indexedName: String, title: String, isLoad = false) -> void:
 	item.text = title
 	itemList.add_child(item)
 	if isLoad:
-		items["item"+str(id)] = {
-			"title" : title,
-			"contents" : main.storedData[self.name]["items"][indexedName]["contents"]
-		}
-	else:
-		items[indexedName] = {
-			"title" : title,
-			"contents" : item.contents
-		}
+		item.contents = main.storedData[self.name]["items"][indexedName]["contents"]
+	items[indexedName] = {
+		"title" : title,
+		"contents" : item.contents
+	}
 	id += 1
 	item.contents["title"] = title
 	item.parent = self

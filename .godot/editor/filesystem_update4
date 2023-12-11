@@ -1,2 +1,2 @@
-res://addons/organizer/uiElements/itemContent.tscn
-res://addons/organizer/scripts/main.gd
+res://addons/organizer/uiElements/column.tscn
+res://addons/organizer/plugin.cfg
